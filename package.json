@@ -1,0 +1,14 @@
+{
+  "name": "gary-link-review",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@playwright/browser-firefox": "^1.41.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.2",
+    "express": "^4.18.2",
+    "playwright": "^1.41.2"
+  }
+}
