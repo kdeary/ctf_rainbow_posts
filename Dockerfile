@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
 
+FROM ubuntu:jammy
 FROM node:20-alpine
 WORKDIR /app
 COPY . .
