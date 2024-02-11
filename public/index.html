@@ -44,6 +44,22 @@
 				font-weight: bold;
 				text-shadow: 1px 1px 1px black;
 			}
+
+			.glow span {
+				text-align: center;
+				-webkit-animation: glow 1s ease-in-out infinite alternate;
+				-moz-animation: glow 1s ease-in-out infinite alternate;
+				animation: glow 1s ease-in-out infinite alternate;
+			}
+
+			@-webkit-keyframes glow {
+				from {
+					text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e60073, 0 0 4px #e60073, 0 0 5px #e60073, 0 0 6px #e60073, 0 0 7px #e60073;
+				}
+				to {
+					text-shadow: 0 0 2px #fff, 0 0 3px #ff4da6, 0 0 4px #ff4da6, 0 0 5px #ff4da6, 0 0 6px #ff4da6, 0 0 7px #ff4da6, 0 0 8px #ff4da6;
+				}
+			}
 		</style>
 		<script type="text/javascript">
 			// window.API_ENDPOINT = '/debug/api';
@@ -112,6 +128,7 @@
 				const postP = postElem.querySelector(".post");
 				let html = HtmlSanitizer.SanitizeHtml(post.content);
 				postP.innerHTML = html;
+				if(post.premium) postP.classList.add('glow');
 				try {
 					rainbowify(postP);
 				} catch (e) {

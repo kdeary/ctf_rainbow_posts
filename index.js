@@ -25,8 +25,9 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-let makePost = (content="your rainbow note") => ({
+let makePost = (content="your rainbow note", premium=false) => ({
 	content,
+	premium,
 	seen: false
 });
 
@@ -85,7 +86,7 @@ app.get('/prod/api/premium_posts', (req, res) => {
 	const auth = req.query && req.query.token;
 
 	if(auth === ADMIN_TOKEN) {
-		res.json({posts: [makePost(`Welcome to Rainbow Posts Premium! Here's your flag: bfe{${FLAG}}`)]});
+		res.json({posts: [makePost(`<h2>Welcome to Rainbow Posts Premium! Here's your flag: bfe{${FLAG}}</h2>`, true)]});
 	} else {
 		res.json({posts: [makePost(`You can't see this post because you don't have Rainbow Posts Premium!`)]})
 	}
